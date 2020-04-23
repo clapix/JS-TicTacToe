@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* font family: */
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: blanchedalmond;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  width: 300px;
+  min-height: 300px;
+  margin: 50px auto;
+  grid-template-columns: repeat (3, 100px);
+  grid-template-rows: repeat (3, 100px);
+}
+
+.cell {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.row1,
+.row2 {
+  border-bottom: 1px solid black;
+}
+
+.col1,
+.col2 {
+  border-right: 1px solid black;
+}
