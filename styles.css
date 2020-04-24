@@ -1,38 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&display=swap");
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  /* font family: */
+  font-family: "Baloo Bhaina 2", sans-serif;
+  font-weight: 500;
+  text-align: center;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background-color: blanchedalmond;
+  background-color: #8402fe;
 }
 
-.grid {
+.wrapper {
+  /* center the whole page: */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30em;
+  height: 30em;
+  margin: auto;
+}
+
+.title {
+  position: absolute;
+  top: 20px;
+  color: #dbd7da;
+  font-size: 1.5em;
+  padding: 0px;
+}
+
+.board {
   display: grid;
+  width: 20em;
+  height: 20em;
   justify-content: center;
   align-content: center;
-  width: 300px;
-  min-height: 300px;
-  margin: 50px auto;
-  grid-template-columns: repeat (3, 100px);
-  grid-template-rows: repeat (3, 100px);
+  grid-template-columns: repeat(3, auto);
+  background-color: #dbd7da;
+  margin: auto;
+  border: 10px solid #a2ff17;
+  border-bottom-left-radius: 3em;
+  border-top-right-radius: 3em;
 }
 
 .cell {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   cursor: pointer;
-  font-size: 2em;
+  font-size: 4em;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1.5em;
+  color: #ef0290;
 }
 
 .row1,
 .row2 {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #a2ff17;
 }
 
 .col1,
 .col2 {
-  border-right: 1px solid black;
+  border-right: 1px solid #a2ff17;
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    width: 20em;
+    height: 20em;
+  }
+  .board {
+    width: 17rem;
+    height: 17rem;
+  }
+  .title {
+    top: -40px;
+    font-size: 1.9em;
+  }
+  .cell {
+    font-size: 3.5em;
+  }
 }
