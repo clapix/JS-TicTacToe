@@ -9,27 +9,35 @@
   text-align: center;
 }
 
+:root {
+  --cell-size: 5em;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
 body {
+  padding: 0;
+  margin: 0;
   background-color: #8402fe;
 }
 
 .wrapper {
   /* center the whole page: */
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30em;
-  height: 30em;
+  width: 100vw;
+  height: 100vh;
   margin: auto;
 }
 
 .title {
   position: absolute;
-  top: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -450%);
   color: #dbd7da;
   font-size: 1.5em;
   padding: 0px;
@@ -41,6 +49,8 @@ body {
   height: 20em;
   justify-content: center;
   align-content: center;
+  /* justify-items: center;
+  align-items: center; */
   grid-template-columns: repeat(3, auto);
   background-color: #dbd7da;
   margin: auto;
@@ -53,36 +63,67 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
+  align-items: center;
+  /* justify-items: center; */
+  width: var(--cell-size);
+  height: var(--cell-size);
   cursor: pointer;
-  font-size: 4em;
-  width: 1.2em;
-  height: 1.2em;
-  line-height: 1.5em;
-  color: #ef0290;
+  position: relative;
 }
 
-.row1,
-.row2 {
+.cell:nth-child(-n + 6) {
   border-bottom: 1px solid #a2ff17;
 }
 
-.col1,
-.col2 {
+.cell:nth-child(3n + 1),
+.cell:nth-child(3n + 2) {
   border-right: 1px solid #a2ff17;
 }
 
+.cell.x::before,
+.cell.x::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+  background-color: #ef0290;
+}
+
+.cell.x::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after {
+  transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: #ef0290;
+}
+
+.cell.circle::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: #dbd7da;
+}
+
 @media (max-width: 500px) {
-  .wrapper {
-    width: 20em;
-    height: 20em;
-  }
   .board {
     width: 17rem;
     height: 17rem;
   }
   .title {
-    top: -40px;
     font-size: 1.9em;
+    transform: translate(-50%, -330%);
   }
   .cell {
     font-size: 3.5em;
