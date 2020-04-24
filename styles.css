@@ -80,40 +80,71 @@ body {
   border-right: 1px solid #a2ff17;
 }
 
+/* same color for the Xs and the Os: */
 .cell.x::before,
-.cell.x::after {
+.cell.x::after,
+.cell.circle::before,
+.cell.circle::after {
+  background-color: #ef0290;
+}
+
+/* same color for the hover over the Xs and the Os: */
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  background-color: #a2ff17;
+}
+
+/* (general X element geometry): */
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute;
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
-  background-color: #ef0290;
 }
 
-.cell.x::before {
+/* line of the X element geometry: */
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
   transform: rotate(45deg);
 }
-
-.cell.x::after {
+/* the other line of the X element geometry: */
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
   transform: rotate(-45deg);
 }
 
+/* (general circle geometry) */
 .cell.circle::before,
-.cell.circle::after {
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
   content: "";
   position: absolute;
   border-radius: 50%;
 }
 
-.cell.circle::before {
+/* bigger circle geometry: */
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
   width: var(--mark-size);
   height: var(--mark-size);
-  background-color: #ef0290;
 }
-
-.cell.circle::after {
+/* inner circle geometry: */
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: #dbd7da;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
 }
 
 @media (max-width: 500px) {
