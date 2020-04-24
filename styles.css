@@ -147,6 +147,39 @@ body {
   cursor: not-allowed;
 }
 
+.winning-message {
+  display: none;
+  /* fixed in the center of the screen*/
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #dbd7da;
+  font-size: 3rem;
+}
+
+.winning-message button {
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  padding: 0 0.5em;
+  color: #dbd7da;
+  background-color: #8402fe;
+  border: none;
+}
+
+.winning-message button:hover {
+  background-color: #ef0290;
+}
+
+.winning-message.show {
+  display: flex;
+}
+
 @media (max-width: 500px) {
   .board {
     width: 17rem;
