@@ -181,6 +181,10 @@ body {
 }
 
 @media (max-width: 500px) {
+  :root {
+    --cell-size: 1em;
+    --mark-size: calc(var(--cell-size) * 0.9);
+  }
   .board {
     width: 17rem;
     height: 17rem;
