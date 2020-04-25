@@ -1,10 +1,10 @@
 const cellElements = document.querySelectorAll("[data-cell]")
 
 
-cellElements.forEach((cellElement) => {
-  cellElement.addEventListener("click", handleClick, { once: true })
+cellElements.forEach((cell) => {
+  cell.addEventListener("click", handleClick, { once: true })
 })
 
-function handleCLick(e) {
+function handleClick(e) {
   console.log("clicked")
 }
